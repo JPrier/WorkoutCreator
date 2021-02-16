@@ -17,8 +17,6 @@ import copy
 '''
 TODO:
  - Set previous_muscle to a list of all previous muscles in the set
- - Need to fix recursive logic
-    - Gets stuck on path of muscle groups that have no exercises
 
 '''
 def select_muscle_group(previous_muscle, workout, exercise_lists):
