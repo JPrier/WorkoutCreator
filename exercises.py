@@ -115,3 +115,4 @@ WORKOUT_SET_NUMBER = [3, 3, 3, 3, 6]
 # What style workout 0=Superset, 1=Compound
 # SuperSet => Each workout in a set is from a different muscle group
 # Compound => Each workout in a set can be from the same muscle group
+WORKOUT_STYLE = [0, 0, 0, 1, 1]
