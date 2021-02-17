@@ -16,15 +16,29 @@ import copy
 
 '''
 TODO:
- - Set previous_muscle to a list of all previous muscles in the set
-
+ - Write result to CSV
 '''
-def select_muscle_group(previous_muscle, workout, exercise_lists):
+def select_muscle_group(current_set_muscles, workout, exercise_lists):
     # find the first non-empty muscle group
     if not exercise_lists or not workout:
         return None
-    if previous_muscle:
-        possible_groups = list(set(ex.SUPERSETS[previous_muscle]).intersection(workout).intersection(exercise_lists.keys()))
+    if current_set_muscles:
+        possible_groups = []
+        # add all possible muscle groups to get exercises from
+        for previous_muscle in current_set_muscles:
+            possible_groups = possible_groups + list(
+                    set(ex.SUPERSETS[previous_muscle])
+                        .intersection(workout)
+                        .intersection(exercise_lists.keys())
+                    )
+        # remove muscle groups already in set
+        possible_groups = list(set(possible_groups) - set(current_set_muscles))
+        # Remove muscle groups that are not compatible with muscle groups already in set
+        for previous_muscle in current_set_muscles:
+            possible_groups = list(
+                                set(ex.SUPERSETS[previous_muscle])
+                                .intersection(possible_groups)
+                              )
         if not possible_groups:
             return None
         random.shuffle(possible_groups)
@@ -38,7 +52,8 @@ def select_muscle_group(previous_muscle, workout, exercise_lists):
     else:
         exercise_lists = {k: v for k, v in exercise_lists.items() if v}
         exercise_lists.pop(muscle_group, None)
-        return select_muscle_group(muscle_group, workout, exercise_lists)
+        current_set_muscles.append(muscle_group)
+        return select_muscle_group(current_set_muscles, workout, exercise_lists)
 
 
 
@@ -52,15 +67,15 @@ for i in range(len(ex.WORKOUTS)):
 
         for set_number in range(ex.WORKOUT_SET_NUMBER[i]):
             print("Set " + str(set_number+1) + ":")
-            previous_muscle = ""
+            current_set_muscles = []
             if not workout:
                 break
             for exercise_number in range(ex.WORKOUT_SET_SIZE[i]):
                 random.shuffle(workout)
-                muscle_group = select_muscle_group(previous_muscle, workout, exercise_lists)
+                muscle_group = select_muscle_group(current_set_muscles, workout, exercise_lists)
                 if not muscle_group:
                     break
                 exercise = exercise_lists[muscle_group].pop()
-                previous_muscle = muscle_group
+                current_set_muscles.append(muscle_group)
                 print(muscle_group + ": " + exercise)
         print("-----------")

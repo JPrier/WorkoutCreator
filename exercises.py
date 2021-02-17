@@ -48,7 +48,7 @@ SUPERSETS = {
     "chest": ["back", "forearms", "hamstrings", "quads", "calves", "glutes", "abs"],
     "biceps": ["triceps", "shoulders", "hamstrings", "quads", "calves", "glutes", "abs"],
     "triceps": ["biceps", "forearms", "hamstrings", "quads", "calves", "glutes", "abs"],
-    "shoulders": ["biceps", "forearms", "hamstrings", "quads", "calves", "glutes", "abs"],
+    "shoulders": ["biceps", "forearms", "hamstrings", "quads", "calves", "glutes", "abs", "triceps"],
     "forearms": ["chest", "biceps", "triceps", "shoulders", "back", "hamstrings", "quads", "calves", "glutes", "abs"],
     "back": ["chest", "forearms", "quads", "calves"],
     "abs": ["chest", "biceps", "triceps", "shoulders", "back", "hamstrings", "quads", "calves", "glutes", "forearms"],
@@ -95,10 +95,10 @@ CARDIO_ABS = ["abs", "abs", "abs", "abs", "abs", "abs", "abs", "abs", "abs",]
 # Each of the splits and other workouts grouped into their cycles
 WORKOUTS = [
     [PUSH_PP, PULL_PP, PUSH_PP, PULL_PP, PUSH_PP, PULL_PP],
-    [PUSH, PULL, LEGS, PUSH, PULL, LEGS],
-    [FULLBODY, FULLBODY, FULLBODY, FULLBODY],
-    [BACK_BICEPS, CHEST_TRICEPS, SHOULDERS_ABS, LEGS],
-    [CARDIO_ABS]
+    # [PUSH, PULL, LEGS, PUSH, PULL, LEGS],
+    # [FULLBODY, FULLBODY, FULLBODY, FULLBODY],
+    # [BACK_BICEPS, CHEST_TRICEPS, SHOULDERS_ABS, LEGS],
+    # [CARDIO_ABS]
 ]
 
 WORKOUT_NAMES = [
