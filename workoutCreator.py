@@ -16,6 +16,9 @@ import copy
 
 '''
 TODO:
+ - Look into CSP
+   - https://en.wikipedia.org/wiki/Constraint_satisfaction_problem
+   - https://www.cs.ubc.ca/~mack/CS322/lectures/3-CSP4.pdf
  - Write result to CSV
 '''
 def select_muscle_group(current_set_muscles, workout, exercise_lists):
