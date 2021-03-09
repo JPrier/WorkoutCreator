@@ -1,13 +1,13 @@
 # WorkoutCreator
 
 ## Work In Progress
-These is currently not functional
+### This is currently not functional
+
+------
 
 ### What It Does
 
-This python script creates a csv of workouts. It creates the workouts through constants/config set in the exercises.py file. 
-
-A split is a list of workouts, a workout is a list of muscle groups, and a muscle group is a list of exercises. Each muscle group has a list of other muscle groups that can be supersetted with it. Each workout contains a certain number of sets that contain a certain number of exercises that are all set in exercises.py.
+This python script creates a csv of workouts. It creates the workouts through a CSP (Constraint Satisfaction Problem) algorithm, which takes constants set in [exercise.py](https://github.com/JPrier/WorkoutCreator/blob/main/exercises.py) and selects exercises into circuit or super sets. The exercises are constrained on which muscle group the other exercises are from in the same set or workout, and the number of times the muscle group or exercise has been worked in a cycle/split. 
 
 
 ### WHY
