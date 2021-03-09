@@ -12,6 +12,6 @@ A split is a list of workouts, a workout is a list of muscle groups, and a muscl
 
 ### WHY
 
-Most studies that I have seen/read about building muscle through resistance training has shown that changing the split and order of workouts can help increase the speed of muscle growth. For changing the order the idea is that you are less tired at the beginning of a workout so changing what starts means different muscle groups get a chance to work at full strength.
+I have seen/read studies about building muscle through resistance training that have shown that changing the split and order of workouts can help increase the speed of muscle growth. For changing the order the idea is that you are less tired at the beginning of a workout so changing what starts means different muscle groups get a chance to work at full strength.
 
 This project is mainly for myself, I like to frequently change up my split style to keep working out interesting. 
