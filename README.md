@@ -1,5 +1,8 @@
 # WorkoutCreator
 
+## Work In Progress
+These is currently not functional
+
 ### What It Does
 
 This python script creates a csv of workouts. It creates the workouts through constants/config set in the exercises.py file. 
