@@ -7,6 +7,19 @@
 #
 ##### --------- #####
 
+# !!!! TODO !!!!
+# - Add compound exercise groups and remove compounds from isolated groups
+# - Instead of workouts being a list of groups, have them be a list of sets,
+# where a list of sets is a list of groups. (this will give better granularity)
+# - Need to rethink the workouts to also allow rpe, weight, or rep ranges to each exercise
+#   -- want to be able to add things like HPS (hypertrophy, power, strength) splits
+#   -- want to give a rough value for weight if given a current 1rpm or a rep goal with a rpe
+#   -- want the rep/weight to be set by exercise to easily add top sets or stair sets etc.
+# - Want to add reverse 21s to the excerises it makes sense in
+# - Add more exercises
+# - Add cardio warmups
+# !!!!!!!!!!!!!!
+
 ##### --------------------------------- #####
 #     Exercises grouped by muscle group     #
 ##### --------------------------------- #####
@@ -67,7 +80,6 @@ SUPERSETS = {
 # For each time a muscle group is in a workout list there will be 1 exercise of that group.
 # If chest could/should be hit twice in a single workout, it should be in the workout list twice
 #####
-
 
 # Push/Pull
 PUSH_PP = ["quads", "quads", "chest", "chest", "shoulders", "shoulders", "triceps", "triceps", "calves"]

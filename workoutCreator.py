@@ -19,8 +19,82 @@ TODO:
  - Look into CSP
    - https://en.wikipedia.org/wiki/Constraint_satisfaction_problem
    - https://www.cs.ubc.ca/~mack/CS322/lectures/3-CSP4.pdf
+   - https://www.cs.cmu.edu/afs/cs/academic/class/15381-s07/www/slides/020107CSP.pdf
  - Write result to CSV
 '''
+
+
+def CSP(workouts, exercises):
+    '''
+    TODO:
+    Depth first search through combinations of exercises in sets in splits
+
+    Start by assigning exercise 1 in set 1 in workout 1
+        - then remove all possible exercises for other exercises in sets in workouts
+            - remove the exercise from possible exercises
+            - remove the muscle group from the possible muscle groups of the current set
+
+    Continue until either all exercises are filled or no possible exercises are left
+        - if no possible exercise is left
+            - if the current workout split is the max # of exercises seen then save
+                - can be updated to be a few metrics rather than just # of EXERCISES
+            - then backtrack to the previous level, ignore the last selection and pick another
+
+
+
+    === Graph ===
+    This method looks at the problem as a graph problem, the exercises are nodes
+    and the lines can be constraints. Issue with this is choosing which constraint
+    to connect on.
+
+    https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/
+    https://www.hackerearth.com/practice/algorithms/graphs/depth-first-search/tutorial/
+
+    Exercises can be seen as points on a graph, sets and workouts will be constraints
+    on the exercises.
+
+
+    === Tree ===
+    This method looks at the workouts as a tree. Each leaf can be an exercise,
+    the parent of the leaves (exercises) are the sets, and the parents of the sets
+    are the workouts, and the parent of the workout is the root (cycle).
+
+    https://www.geeksforgeeks.org/dfs-traversal-of-a-tree-using-recursion/
+
+    This representation method of the data seems the best, it allows for the best
+    traversal method in terms of DFS and applying constraints.
+
+    Implementation:
+        Use the PostOrder method to look at leaves before looking at the root.
+
+        PseduoCode:
+            def DFS(node):
+                if node is a list
+                    workout = []
+                    for item in node:
+                        workout.append(DFS(item))
+                    return workout
+                else:
+                    if possible_groups and possible_exercises not empty
+                        group = random(possible_groups)
+                        return random(possible_exercises)
+                    else:
+                        return nil
+
+        Issues:
+            - How do we check/change the possible groups
+            - Current constant method does not work for the leaves of the tree
+                - each exercise should have a list of groups associated with it
+
+    ============
+
+    Data = Cycle [Full1 [Set1 [ex1, ex2, ex3], Set2 [ex1, ex2, ex3], Set3 [ex1, ex2, ex3]], Full2 [ ], Full3 [ ] ]
+    '''
+
+
+
+
+
 def select_muscle_group(current_set_muscles, workout, exercise_lists):
     # find the first non-empty muscle group
     if not exercise_lists or not workout:
